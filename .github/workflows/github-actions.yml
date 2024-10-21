@@ -1,0 +1,16 @@
+name: Github actions demo
+run-name: ${{github.actor}} is testing out the github actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "job was automatically trigerred by ${{ github.event_name}}"
+      - run: echo "job is running on ${{runner.os}} server is hosted bu GitHub!!"
+      - name: Check out the rposiory code
+        uses: actions/checkout@v4
+      - run: echo "The ${{github.repository}} this repo is cloned to the runner"
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace}}
+      - run: echo "job's status is ${{job.status}}!!"
